@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+
+{% block body %}
+
+    <h1>Toutes les catégories : </h1>
+    {% for category in categories %}
+            <div>
+                <h2>{{ loop.index }} / {{ category.name }}
+            </div>
+        {% else %}
+            Aucune série trouvée.
+        {% endfor %}
+</div>
+{% endblock %}

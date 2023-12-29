@@ -9,12 +9,19 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/charl/Documents/DonkeySchool/Workspace/Symfony/donkey-series/src/Controller/ProgramController.php'|file_link(0) }}">src/Controller/ProgramController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/charl/Documents/DonkeySchool/Workspace/Symfony/donkey-series/templates/program/index.html.twig'|file_link(0) }}">templates/program/index.html.twig</a></code></li>
-    </ul>
+    
+    <h1>Toutes les séries de la table program : </h1>
+        {% for program in programs %}
+            <div>
+                <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+                <p>{{ program.summary }}</p>
+                <a href="{{ path("app_program_show", { id: program.id }) }}">Voir la fiche</a>
+            </div>
+        {% else %}
+            Aucune série trouvée.
+        {% endfor %}
+        <a href="{{ path('app_index') }}">
+            Retour à l'accueil
+        </a>
 </div>
 {% endblock %}

@@ -9,7 +9,16 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Program {{ name }}! ✅</h1>
-    
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{name.poster}}" alt="{{ name.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ name.title }}</h1>
+            <p>{{ name.summary }}</p>
+            <p>Catégorie : {{ name.category.name }}</p>
+        </div>
+    </div>
+    <a href="{{ path('app_program') }}">
+        Retour à la liste des programmes
+    </a>
 </div>
 {% endblock %}

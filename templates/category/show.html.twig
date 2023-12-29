@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Hello CategoryController! {% endblock %}
+
+{% block body %}
+    {{ category.name }}
+    {% for program in programs %}
+        <div>
+            <h4>Série n° {{program.id}} : {{program.title}}</h4>
+            {{program.summary}}
+            <p>
+                <a href="{{ path("app_program_show", { id: program.id }) }}">Voir la fiche</a>
+            </p>
+        </div>
+    {% else %}
+            Aucune série trouvée.
+    {% endfor %}
+{% endblock %}
