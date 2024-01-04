@@ -4,7 +4,6 @@ namespace App\Controller;
 
 
 use App\Entity\Category;
-use App\Entity\Program;
 use App\Repository\CategoryRepository;
 use App\Repository\ProgramRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +25,7 @@ class CategoryController extends AbstractController
     {
         return $this->render('category/show.html.twig', [
             'category' => $category,
-            'programs' => $programRepository->findBy(['category' => $category],  array('id' => 'desc'), 3)
+            'programs' => $category->getPrograms()->slice(-3),
         ]);
     }
 }

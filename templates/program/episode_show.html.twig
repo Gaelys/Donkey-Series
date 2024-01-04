@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProgramController!{% endblock %}
+
+{% block body %}
+    <h1>
+        {{ program.title}}
+    </h1>
+    <h2>{{ episode.title }} : {{ season.description }} épisode {{ episode.number }}</h2>
+    <p>
+        {{ episode.synopsis }}
+    </p>
+{% endblock %}

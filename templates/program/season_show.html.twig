@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProgramController!{% endblock %}
+
+{% block body %}
+    {{ season.description }} de {{ program.title }} : 
+    {% for seasondet in seasons%}
+        <div>
+            {{ seasondet.number}} : {{seasondet.title }}
+            <a href="{{ path("app_episode_show", {program: program.id, season: season.id, id: seasondet.id  }) }}">Voir la fiche</a>
+        </div>
+    {% endfor %}
+{% endblock %}
