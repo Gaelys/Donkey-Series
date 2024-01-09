@@ -7,7 +7,6 @@ use App\Entity\Season;
 use App\Entity\Episode;
 use App\Form\ProgramType;
 use App\Repository\ProgramRepository;
-use App\Service\Slugify;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,7 +39,7 @@ class ProgramController extends AbstractController
         ]);
     }
 
-    #[Route('/program/{id<^\d+$>}', methods: ["GET"], name: 'app_program_show')]
+    #[Route('/program/{slug}', methods: ["GET"], name: 'app_program_show')]
     public function show(Program $program): Response
     {
         return $this->render('program/show.html.twig', [
