@@ -39,7 +39,7 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/category/{name<^[A-z]+$>}', name: 'app_category_show')]
+    #[Route('/category/{name<^[A-z ]+$>}', name: 'app_category_show')]
     public function show(Category $category): Response
     {
         return $this->render('category/show.html.twig', [
